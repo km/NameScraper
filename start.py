@@ -14,10 +14,10 @@ def droptime():
 @app.route('/list',methods = ['GET'])
 def nlist():
    if request.method == 'GET':
-      length = request.args.get('length')
-      lang = request.args.get('lang')
-      searches = request.args.get('searches')
-      length_op = request.args.get('length_op')
+      length = str(request.args.get('length'))
+      lang = str(request.args.get('lang'))
+      searches = str(request.args.get('searches'))
+      length_op = str(request.args.get('length_op'))
       nmc = namemc.namemc(length, length_op, lang, searches)
       return json.dumps(nmc.getList()) 
 

@@ -28,7 +28,9 @@ class namemc:
 
      def getList(self):
          names = []
-         scraper = cfscrape.create_scraper() 
+         scraper = cfscrape.create_scraper()
+         if(len(self.language) != 2):
+           self.language = ""
          req = scraper.get("https://namemc.com/minecraft-names?length_op="+self.lengthop+"&length="+self.length+"&lang="+self.language+"&searches="+self.searches)
          bs = bs4.BeautifulSoup(req.content, "html.parser")
          page = bs.find(class_="col-lg-7 order-lg-2")
