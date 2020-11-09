@@ -8,6 +8,7 @@ Namemc Scraper
 - flask
 - beautifulsoup4
 - requests
+- cfscrape
 # Usage
 - This was made to be used as a server although you can use namemc.py to integrate it directly with your python application
 - Droptime is in unix milliseconds
