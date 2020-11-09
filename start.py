@@ -3,12 +3,13 @@ import json
 import requests
 import namemc
 app = Flask(__name__)
-
+# /droptime body: name="username"
 @app.route('/droptime',methods = ['POST'])
 def droptime():
    if request.method == 'POST':
-      name = request.form['name']
-      return name
+      name = str(request.json.get('name'))
+      print(name)
+      return str(int(namemc.namemc.getDroptime(name)))
 # /list?length=&lang=&searches=&length_op=      
 @app.route('/list',methods = ['GET'])
 def nlist():

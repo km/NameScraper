@@ -1,5 +1,7 @@
 import bs4
 import cfscrape
+from datetime import datetime
+import time
 
 class namemc:
      def __init__(self, length, lengthop, language, searches):
@@ -14,12 +16,15 @@ class namemc:
          page = bs.find(class_="card mb-3")
          box = page.find(class_="card-body py-1 position-relative")
          elements = box.find_all(class_="py-0")
-         time = ""
+         t = ""
          for element in elements:
            ign = element.find(class_="col col-sm").get_text()
            if(ign.upper().strip() == name.upper()):
-             return time
-           time = element.find_all("time")[0].get_text()
+             t = t.replace("Z", "+0000")
+             dt = datetime.strptime(t, '%Y-%m-%dT%H:%M:%S.000%z')
+             return dt.timestamp()*1000+3196800000
+           t = element.find_all("time")[0].get_text()
+
 
      def getList(self):
          names = []
@@ -32,8 +37,6 @@ class namemc:
          for name in tablen:
            names.append(name.get_text()) 
          return names
-
-print(namemc.getDroptime("_team32_TR"))
 
 
          
