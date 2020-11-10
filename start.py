@@ -22,6 +22,7 @@ def nlist():
       li = nmc.getList()
       flist = ""
       for x in li:
+         flist += x+"\n"
       flist = flist.strip()   
       return flist
 
