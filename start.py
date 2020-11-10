@@ -19,7 +19,11 @@ def nlist():
       searches = str(request.args.get('searches'))
       length_op = str(request.args.get('length_op'))
       nmc = namemc.namemc(length, length_op, lang, searches)
-      return json.dumps(nmc.getList()) 
+      li = nmc.getList()
+      flist = ""
+      for x in li:
+      flist = flist.strip()   
+      return flist
 
 if __name__ == '__main__':
    app.run(debug = True)
