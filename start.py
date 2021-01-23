@@ -3,7 +3,7 @@ import json
 import requests
 import namemc
 app = Flask(__name__)
-# /droptime body: name="username"
+# /droptime body: {"name":"yourusername"}
 @app.route('/droptime',methods = ['POST'])
 def droptime():
    if request.method == 'POST':
